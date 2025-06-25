@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yapılacaklar Listesi</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background: #f0f8ff;
+    text-align: center;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+        
+    }
+
+    h1 {
+    color: #0b3d91;
+    }
+
+    input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #0b3d91;
+    border-radius: 5px;
+    }
+
+    button {
+    padding: 10px 15px;
+    background-color: #0b3d91;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    }
+
+    ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+    }
+
+    li {
+    background: white;
+    padding: 10px;
+    margin: 5px auto;
+    width: 300px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    }
+
+    li.completed {
+    text-decoration: line-through;
+    color: gray;
+    background: #e0e0e0;
+    }
+
+    .delete-btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+        
+    .menu {
+        background-color: #333;
+        overflow: hidden;
+    }
+    .menu a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    .menu a:hover {
+        background-color: #575757;
+    }
+</style>
+</head>
+<body>
+<div class="menu">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkinda.html">Hakkında</a>
+        <a href="iletisim.html">İletişim</a>
+        <a href="gorevler.html">Görevler</a>
+        <a href="iş_asistanım.html">Günlük yardımcınız</a>
+        <a href="alıiskanliklar.html">Alışkanlık Takipçisi</a>
+    </div>
+<h1>📋 Yapılacaklar Listesi</h1>
+
+<input type="text" id="taskInput" placeholder="Yeni görev yaz...">
+<button onclick="addTask()">Ekle</button>
+
+<ul id="taskList"></ul>
+
+<script>
+    function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const taskText = taskInput.value.trim();
+
+    if (taskText === "") return;
+
+    const li = document.createElement('li');
+    li.textContent = taskText;
+
+    // Tamamlandı işareti
+    li.addEventListener('click', () => {
+        li.classList.toggle('completed');
+    });
+
+      // Silme butonu
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Sil';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.onclick = () => li.remove();
+
+    li.appendChild(deleteBtn);
+    document.getElementById('taskList').appendChild(li);
+
+      taskInput.value = ""; // kutuyu temizle
+    }
+</script>
+
+</body>
+</html>

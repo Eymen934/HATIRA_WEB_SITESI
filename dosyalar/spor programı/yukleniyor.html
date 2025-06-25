@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yükleniyor...</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-size: 2em;
+      padding: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="progress">Programınız yazılıyor: 0%</div>
+
+  <script>
+    let i = 0;
+    let interval = setInterval(() => {
+      i++;
+      document.getElementById("progress").textContent = "Programınız yazılıyor: " + i + "%";
+      if (i >= 100) {
+        clearInterval(interval);
+        setTimeout(() => {
+          window.location.href = "program.html?" + window.location.search.split('?')[1];
+        }, 1000);
+      }
+    }, 30);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Programınız Hazır</title>
+<style>
+    body {
+    text-align: center;
+    background-color: #fff8dc;
+    font-family: Arial;
+    padding: 50px;
+    }
+    h1 {
+    color: darkgreen;
+    }
+    a {
+    font-weight: bold;
+    text-decoration: underline;
+    color: darkred;
+    font-size: 1.2em;
+    cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h1>🎉 Programınız Yazıldı!</h1>
+<p>
+    <a id="basla" href="#">Programınıza başlamak için tıklayın</a>
+</p>
+
+<script>
+    // URL parametrelerini al ve animasyon sayfasına ekle
+    const params = window.location.search;
+    document.getElementById("basla").href = "animasyon.html" + params;
+</script>
+
+</body>
+</html>

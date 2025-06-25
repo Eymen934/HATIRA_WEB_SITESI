@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bölge ve Seviye Seçimi</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background-color: #eef;
+      padding: 50px;
+    }
+    label {
+      display: block;
+      margin: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>💪 Hangi bölgeleri geliştirmek istiyorsun?</h2>
+
+  <form id="form">
+    <label><input type="checkbox" value="bacak"> Bacak</label>
+    <label><input type="checkbox" value="karın"> Karın</label>
+    <label><input type="checkbox" value="kol_sırt"> Kol ve Sırt</label>
+    <label><input type="checkbox" value="kalça"> Kalça</label>
+    <label><input type="checkbox" value="boyun"> Boyun</label>
+
+    <hr>
+
+    <h3>📊 Seviyeni Seç:</h3>
+    <label><input type="radio" name="seviye" value="başlangıç" checked> Başlangıç</label>
+    <label><input type="radio" name="seviye" value="orta"> Orta</label>
+    <label><input type="radio" name="seviye" value="ileri"> İleri</label>
+
+    <button type="button" onclick="ileri()">İlerle</button>
+  </form>
+
+  <script>
+    function ileri() {
+      const secimler = [];
+      document.querySelectorAll('input[type=checkbox]:checked').forEach(cb => {
+        secimler.push(cb.value);
+      });
+
+      const seviye = document.querySelector('input[name=seviye]:checked').value;
+
+      const params = new URLSearchParams();
+      params.set("secimler", secimler.join(","));
+      params.set("seviye", seviye);
+      window.location.href = "yukleniyor.html?" + params.toString();
+    }
+  </script>
+
+</body>
+</html>

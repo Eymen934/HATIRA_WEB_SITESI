@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Günlük Yardımcınız</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f3f6fc;
+        margin: 0;
+        padding: 40px;
+        color: #333;
+    }
+    h1 {
+    text-align: center;
+    color: #0d47a1;
+    margin-bottom: 40px;
+    }
+
+    .section {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+    color: #2196f3;
+    margin-bottom: 20px;
+    }
+
+    .calculator {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 20px;
+    width: 280px;
+    margin: auto;
+    }
+
+    .display {
+    background-color: #000;
+    color: #00ffcc;
+    font-size: 28px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: right;
+    }
+
+    .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    }
+
+    .buttons button {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2a2a2a;
+    color: white;
+    cursor: pointer;
+    }
+
+    .timer-box {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 28px;
+    font-weight: bold;
+    color: #00796b;
+    }
+
+    .info-box {
+    background-color: #e3f2fd;
+    border-left: 6px solid #2196f3;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.6;
+    }
+
+    .info-box strong {
+    color: #0d47a1;
+    }
+
+    .timer-controls {
+    text-align: center;
+    margin-top: 15px;
+    }
+
+    .timer-controls input, .timer-controls button {
+    margin: 5px;
+    padding: 10px;
+    }
+
+</style>
+</head>
+<body>
+<h1>🧠 Günlük Yardımcınız</h1>  
+<!-- Hesap Makinesi -->  
+ <div class="section">
+    <h2>🧼 Hesap Makinesi</h2>
+    <div class="calculator">
+    <div class="display" id="calcDisplay">0</div>
+    <div class="buttons">
+        <button onclick="clearDisplay()">C</button>
+    <button onclick="appendValue('%')">%</button>
+    <button onclick="appendValue('/')">&divide;</button>
+    <button onclick="backspace()">&larr;</button>
+    <button onclick="appendValue('7')">7</button>
+    <button onclick="appendValue('8')">8</button>
+    <button onclick="appendValue('9')">9</button>
+    <button onclick="appendValue('*')">&times;</button>
+
+    <button onclick="appendValue('4')">4</button>
+    <button onclick="appendValue('5')">5</button>
+    <button onclick="appendValue('6')">6</button>
+    <button onclick="appendValue('-')">&minus;</button>
+
+    <button onclick="appendValue('1')">1</button>
+    <button onclick="appendValue('2')">2</button>
+    <button onclick="appendValue('3')">3</button>
+    <button onclick="appendValue('+')">+</button>
+
+    <button onclick="appendValue('0')">0</button>
+    <button onclick="appendValue('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="appendValue('')">&plusmn;</button>
+</div>
+</div>
+
+</div>  <!-- Pomodoro Sayacı -->  <div class="section">
+    <h2>🍅 Pomodoro Sayacı</h2>
+    <div class="timer-box" id="pomodoroTimer">25:00</div>
+    <div class="timer-controls">
+    <button onclick="startPomodoro()">Başlat</button>
+    <button onclick="resetPomodoro()">Sıfırla</button>
+    </div>
+</div>  <!-- Zamanlayıcı -->  <div class="section">
+    <h2>⏳ Zamanlayıcı</h2>
+    <div class="timer-box" id="countdown">00:00</div>
+    <div class="timer-controls">
+    <input type="number" id="minutesInput" placeholder="Dakika gir" min="1">
+    <button onclick="startCountdown()">Başlat</button>
+    </div>
+</div>  <!-- Bilgilendirme Kutusu -->  <div class="section">
+    <h2>📘 Pomodoro Tekniği Nedir?</h2>
+    <div class="info-box">
+    <p><strong>Pomodoro Tekniği</strong>, 25 dakika çalışma + 5 dakika mola prensibiyle odaklanmayı artıran bir zaman yönetimi yöntemidir.</p>
+    <p>Her 4 Pomodoro’dan sonra 15-30 dakika büyük mola verilir. Bu teknik; dikkat dağınıklığı azaltır, üretkenliği artırır.</p>
+    </div>
+</div>  <script>
+    // Hesap Makinesi
+    const display = document.getElementById("calcDisplay");
+    function appendValue(val) {
+    if (display.textContent === "0") display.textContent = "";
+    display.textContent += val;
+}
+function clearDisplay() {
+    display.textContent = "0";
+}
+function backspace() {
+    display.textContent = display.textContent.slice(0, -1) || "0";
+}
+function calculate() {
+    try {
+    display.textContent = eval(display.textContent.replace('%', '/100'));
+    } catch {
+    display.textContent = "Hata";
+    }
+    }
+
+    // Pomodoro
+    let pomoInterval;
+    let pomoTime = 25 * 60;
+    function startPomodoro() {
+    clearInterval(pomoInterval);
+    pomoInterval = setInterval(() => {
+        if (pomoTime <= 0) {
+        clearInterval(pomoInterval);
+        document.getElementById("pomodoroTimer").textContent = "Bitti!";
+        return;
+        }
+        pomoTime--;
+        const min = String(Math.floor(pomoTime / 60)).padStart(2, '0');
+        const sec = String(pomoTime % 60).padStart(2, '0');
+        document.getElementById("pomodoroTimer").textContent = ${min}:${sec};
+    }, 1000);
+    }
+    function resetPomodoro() {
+    clearInterval(pomoInterval);
+      pomoTime = 25 * 60;
+    document.getElementById("pomodoroTimer").textContent = "25:00";
+    }
+
+    // Zamanlayıcı
+    let countdownInterval;
+    function startCountdown() {
+    clearInterval(countdownInterval);
+    const inputMin = parseInt(document.getElementById("minutesInput").value);
+    if (isNaN(inputMin) || inputMin < 1) return;
+      let totalSeconds = inputMin * 60;
+    countdownInterval = setInterval(() => {
+        if (totalSeconds <= 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("countdown").textContent = "Bitti!";
+        return;
+        }
+        totalSeconds--;
+        const min = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+        const sec = String(totalSeconds % 60).padStart(2, '0');
+        document.getElementById("countdown").textContent = ${min}:${sec};
+    }, 1000);
+    }
+</script></body>
+</html>

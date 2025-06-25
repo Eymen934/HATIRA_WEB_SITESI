@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Programınız Hazır</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+      padding: 50px;
+    }
+
+    h1 {
+      color: darkgreen;
+    }
+
+    a {
+      font-weight: bold;
+      text-decoration: underline;
+      color: darkblue;
+      font-size: 1.3em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Programınız Yazıldı!</h1>
+  <p>
+    <a id="basla">Programınıza başlamak için tıklayın</a>
+  </p>
+
+  <script>
+    document.getElementById("basla").addEventListener("click", function () {
+      // animasyon.html sayfasına yönlendir
+      window.location.href = "animasyon.html";
+    });
+  </script>
+
+</body>
+</html>
