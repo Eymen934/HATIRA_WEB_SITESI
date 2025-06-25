@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Anılarım</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #111;
+      color: #f0e6d2;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      padding-bottom: 100px;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      color: #c4b57b;
+      text-decoration: none;
+      font-size: 1.1em;
+      padding: 8px 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #333;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 30px;
+      color: #e0c97f;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #c4b57b;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+    }
+
+    .subtitle {
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #aaa;
+    }
+
+    .main-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 20px 0;
+      border: 3px solid #fff;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .gallery img {
+      width: 160px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .color-picker {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 0.9em;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9em;
+      color: #888;
+      background-color: #0d0d0d;
+      border-top: 1px solid #333;
+      margin-top: 40px;
+    }
+        /* Menü genel ayar */
+    header {
+      background-color: #1a1a1a;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Menü liste yapısı */
+    .menu {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Menü linkleri */
+    .menu li a {
+      color: #c4b57b;
+      font-size: 1.1rem;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    /* Hover efekti */
+    .menu li a:hover,
+    .menu li a:focus {
+      background-color: #333;
+      color: #fff;
+    }
+
+    /* Responsive: küçük ekranlarda menüyü dikey yap */
+    @media (max-width: 600px) {
+      .menu {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 0;
+      }
+    }
+    header h1 {
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+    color: #f9c74f;
+    text-shadow: 2px 2px 6px #000;
+    text-align: center;
+    margin-bottom: 10px;
+    user-select: none;
+  }
+        header {
+      background-color: #1a1a1a;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #c4b57b;
+      text-decoration: none;
+      font-size: 1.2em;
+      padding: 8px 16px;
+      transition: 0.3s;
+      border-radius: 15px;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #c4b57b;
+      color: #111;
+      font-weight: bold;
+      box-shadow: 0 0 8px #c4b57b;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="color-picker">
+    <label for="bgColor">🎨 Renk:</label>
+    <input type="color" id="bgColor" value="#111111">
+  </div>
+
+  <header>
+    <h1>Muhammed Eymen Günay</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="websites.html">Web Sitelerim</a></li>
+        <li><a href="exe_dosyalarim.html">EXE Uygulamalarım</a></li>
+        <li><a href="hakkimda.html">Hakkımda</a></li>
+        <li><a href="geribildirim.html">Geri Bildirim</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Burası Harika Bir Anı Web Sitesi</h1>
+    <p class="subtitle">Kodlarla yazılmış hatıraları burada bulabilirsiniz</p>
+    <div style="text-align:center; margin-top: 50px;">
+      <!-- SVG kodunu buraya yapıştır -->
+       <svg width="600" height="180" viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00fff7"/>
+          <stop offset="100%" stop-color="#0066cc"/>
+        </linearGradient>
+
+        <filter id="neonShadow">
+          <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00fff7" />
+          <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00ffff" />
+        </filter>
+      </defs>
+
+      <!-- Arka ışıklı daire -->
+      <circle cx="300" cy="90" r="80" fill="url(#neon)" opacity="0.1"/>
+
+      <!-- MEG Harfleri -->
+      <text x="50" y="110" font-family="Arial Black, sans-serif" font-size="72" fill="url(#neon)" filter="url(#neonShadow)">
+        MEG
+      </text>
+
+      <!-- Software metni -->
+      <text x="260" y="125" font-family="Verdana, sans-serif" font-size="36" fill="#00fff7" filter="url(#neonShadow)" letter-spacing="4">
+        Software
+      </text>
+    </svg>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <footer>
+    <p>&copy; 2025 Muhammed Eymen Günay. Tüm hakları saklıdır.</p>
+    <p>Bu sitedeki içerikler 5846 Sayılı Fikir ve Sanat Eserleri Kanunu kapsamında korunmaktadır.</p>
+  </footer>
+
+  <script>
+    const bgColorInput = document.getElementById("bgColor");
+    const savedColor = localStorage.getItem("bgColor");
+    if (savedColor) {
+      document.body.style.backgroundColor = savedColor;
+      bgColorInput.value = savedColor;
+    }
+
+    bgColorInput.addEventListener("input", function () {
+      document.body.style.backgroundColor = this.value;
+      localStorage.setItem("bgColor", this.value);
+    });
+  </script>
+
+</body>
+</html>

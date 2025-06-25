@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geri Bildirim</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+    body {
+      background-color: #111;
+      color: #f0e6d2;
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #c4b57b;
+      text-decoration: none;
+      font-size: 1.2em;
+      padding: 8px 16px;
+      transition: 0.3s;
+      border-radius: 15px;
+    }
+
+    nav a:hover, nav a.active {
+      background-color: #c4b57b;
+      color: #111;
+      font-weight: bold;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    .feedback-box {
+      background-color: #1f1f1f;
+      border-radius: 28px;
+      padding: 40px 35px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(196, 181, 123, 0.8);
+    }
+
+    .feedback-box h1 {
+      font-size: 2.8em;
+      margin-bottom: 18px;
+      color: #e0c97f;
+      text-align: center;
+    }
+
+    .feedback-box p {
+      font-style: italic;
+      margin-bottom: 32px;
+      color: #aaa;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1.1em;
+      color: #c4b57b;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    input, textarea {
+      background-color: #111;
+      border: none;
+      border-radius: 16px;
+      padding: 14px 20px;
+      color: #f0e6d2;
+      font-size: 1em;
+      font-family: 'Playfair Display', serif;
+      resize: none;
+      box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 12px #c4b57b;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button {
+      background-color: #c4b57b;
+      border: none;
+      border-radius: 20px;
+      padding: 14px;
+      font-weight: 700;
+      font-size: 1.2em;
+      color: #111;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e0c97f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9em;
+      color: #888;
+      background-color: #0d0d0d;
+      border-top: 1px solid #333;
+      margin-top: auto;
+    }
+        header {
+      background-color: #1a1a1a;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #c4b57b;
+      text-decoration: none;
+      font-size: 1.2em;
+      padding: 8px 16px;
+      transition: 0.3s;
+      border-radius: 15px;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #c4b57b;
+      color: #111;
+      font-weight: bold;
+      box-shadow: 0 0 8px #c4b57b;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      color: #f9c74f;
+      text-shadow: 2px 2px 6px #000;
+      text-align: center;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+    
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Muhammed Eymen Günay</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><a href="websites.html">Web Sitelerim</a></li>
+      <li><a href="exe_dosyalarim.html">EXE Uygulamalarım</a></li>
+      <li><a href="hakkimda.html">Hakkımda</a></li>
+
+      <li><a href="geribildirim.html" class="active">Geri Bildirim</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="feedback-box">
+    <h1>Geri Bildirim</h1>
+    <p>Fikirlerinizi ve yorumlarınızı bizimle paylaşabilirsiniz.</p>
+    <form id="feedbackForm">
+      <label for="isim">İsim</label>
+      <input type="text" id="isim" name="isim" required placeholder="Adınız" />
+
+      <label for="email">E-posta</label>
+      <input type="email" id="email" name="email" required placeholder="E-posta adresiniz" />
+
+      <label for="mesaj">Mesajınız</label>
+      <textarea id="mesaj" name="mesaj" required placeholder="Mesajınızı yazınız..."></textarea>
+
+      <button type="submit">Gönder</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Muhammed Eymen Günay. Tüm hakları saklıdır.</p>
+  <p>Bu sitede yer alan tüm içerikler (fotoğraflar, yazılar, yazılımlar ve fikirler) sadece <strong>kişisel portföy amacıyla</strong> paylaşılmıştır. İzinsiz kopyalanamaz, çoğaltılamaz veya başka platformlarda yayınlanamaz.</p>
+</footer>
+
+<script>
+  document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Formun normal submit işlemini durdur
+
+    // Burada istersen form verilerini işleyebilir, API'ye gönderebilirsin.
+
+    alert('Mesajınız gönderildi! Teşekkürler 🙌');
+    this.reset(); // Formu temizle
+  });
+</script>
+
+</body>
+</html>

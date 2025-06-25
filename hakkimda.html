@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hakkımda</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      background-color: #111;
+      font-family: 'Playfair Display', serif;
+      color: #f0e6d2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: rgba(60, 20, 18, 0.85);
+      padding: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+
+    /* Menü stili */
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      color: #c4b57b;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #333;
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      letter-spacing: 3px;
+      color: #f9c74f;
+      text-shadow: 2px 2px 6px #000;
+      text-align: center;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: #1f1f1f;
+      padding: 35px 45px;
+      border-radius: 18px;
+      box-shadow: 0 0 22px rgba(255,215,0,0.15);
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    main h2 {
+      color: #f9c74f;
+      font-size: 2.6rem;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #f9c74f;
+      padding-bottom: 12px;
+    }
+
+    main p {
+      margin-bottom: 20px;
+    }
+
+    main ul {
+      list-style: inside square;
+      margin-left: 15px;
+      margin-bottom: 30px;
+    }
+
+    main ul li {
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: #f9c74f;
+      font-weight: 700;
+    }
+
+    footer {
+      background-color:#0d0d0d;
+      padding: 20px 0;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      main {
+        margin: 20px 15px;
+        padding: 25px 20px;
+        font-size: 1rem;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      main h2 {
+        font-size: 2rem;
+      }
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+    }
+        header {
+      background-color: #1a1a1a;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #c4b57b;
+      text-decoration: none;
+      font-size: 1.2em;
+      padding: 8px 16px;
+      transition: 0.3s;
+      border-radius: 15px;
+      display: inline-block;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #c4b57b;
+      color: #111;
+      font-weight: bold;
+      box-shadow: 0 0 8px #c4b57b;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Muhammed Eymen Günay</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Ana Sayfa</a></li>
+      <li><a href="websites.html">Web Sitelerim</a></li>
+      <li><a href="exe_dosyalarim.html">EXE Uygulamalarım</a></li>
+      <li><a href="hakkimda.html">Hakkımda</a></li>
+      <li><a href="geribildirim.html">Geri Bildirim</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Kodlama Yolculuğum ve Ben</h2>
+  <p>Merhaba! Ben <span class="highlight">Muhammed Eymen Günay</span>. Yazılım dünyasında yolculuğum, çocukluk yıllarımda başladı ve her gün yeni şeyler öğrenerek devam ediyor. Kod yazmak benim için sadece bir hobi değil, aynı zamanda tutkudur.</p>
+
+  <p>Bilgisayar programlamaya ilk olarak blok tabanlı dillerle adım attım. Sonra Python, HTML, CSS ve SQL gibi teknolojilerle ilerledim. Her adımda yeni zorluklarla karşılaştım ama vazgeçmedim, tam tersine daha çok motive oldum.</p>
+
+  <ul>
+    <li><span class="highlight">2. sınıfta</span> blok tabanlı programlamaya başladım</li>
+    <li><span class="highlight">Python</span> ile algoritmalar ve program yazmayı öğrendim</li>
+    <li><span class="highlight">HTML & CSS</span> ile web tasarımı yaptım</li>
+    <li><span class="highlight">SQL</span> kullanarak veri tabanları oluşturup sorgulama yaptım</li>
+    <li>Kendi <span class="highlight">Discord botumu</span> yazdım ve projeler geliştirdim</li>
+  </ul>
+
+  <p>Amacım, yazılım alanında profesyonelleşmek ve yaratıcılığımı teknolojiyle birleştirerek özgün projeler üretmek. Gelecekte yapay zeka ve mobil uygulamalar üzerine çalışmayı hedefliyorum.</p>
+  
+  <p>Bu yolculukta bana destek olan dostlarım ve mentorlarım için minnettarım. Yazılım öğrenmek isteyen herkese ilham vermek istiyorum.</p>
+</main>
+
+<footer>
+  &copy; 2025 Muhammed Eymen Günay. Tüm hakları saklıdır.
+  <p>Bu sitede yer alan tüm içerikler (fotoğraflar, yazılar, yazılımlar ve fikirler) sadece <strong>kişisel portföy amacıyla</strong> paylaşılmıştır. İzinsiz kopyalanamaz, çoğaltılamaz veya başka platformlarda yayınlanamaz.</p>
+</footer>
+
+</body>
+</html>
